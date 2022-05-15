@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class City : MonoBehaviour
 {
     private PhotonView view;
+    [SerializeField]private Canvas canvas;
+    [SerializeField]private Camera camera;
     [Header("Switch")]
     [SerializeField]private bool Colour;
     [SerializeField]private GameObject[] SwitchObjects;
@@ -18,6 +21,8 @@ public class City : MonoBehaviour
     void Start()
     {
         view = GetComponent<PhotonView>();
+        camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>() as Camera;
+        canvas.worldCamera = camera;
     }
 
     private void OnTriggerStay2D(Collider2D other) 

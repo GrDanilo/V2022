@@ -1540,6 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef52a5c45f338445be07ba5c912fc2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 5051055368106848447}
   Colour: 0
   SwitchObjects:
   - {fileID: 1715939480841442548}
