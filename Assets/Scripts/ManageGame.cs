@@ -26,13 +26,13 @@ public class ManageGame : MonoBehaviourPunCallbacks
 
         if (team == 1)
         {
-            PhotonNetwork.Instantiate(CameraPrefab.name, BluePos, Quaternion.identity);
+            //PhotonNetwork.Instantiate(CameraPrefab.name, BluePos, Quaternion.identity);
             PhotonNetwork.Instantiate(CityPrefab.name, CitySpawners[rand], Quaternion.identity);
         }
 
         if(team == 0)
         {
-            PhotonNetwork.Instantiate(CameraPrefab.name, RedPos, Quaternion.identity);
+            //PhotonNetwork.Instantiate(CameraPrefab.name, RedPos, Quaternion.identity);
             team += 1;
             view.RPC("Team", RpcTarget.AllBuffered, team);
             PhotonNetwork.Instantiate(CityPrefab.name, CitySpawners[rand], Quaternion.identity);

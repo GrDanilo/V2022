@@ -22,6 +22,7 @@ public class City : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other) 
     {
+        //часть кода для захвата города
         if (other.CompareTag("PlayerBlue") && Colour == true)
         {
             SwitchColour();
@@ -54,6 +55,7 @@ public class City : MonoBehaviour
 
     public void SpawnUnit(int UnitNumber)
     {
+        //Спавн юнитов
         if(Colour == true)
         {
             PhotonNetwork.Instantiate(RedPlayerPrefab[UnitNumber].name, SpawnPosition.position, Quaternion.identity);
