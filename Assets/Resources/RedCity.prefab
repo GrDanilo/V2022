@@ -1332,6 +1332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5051055368106848447}
+  camera: {fileID: 0}
   Colour: 1
   SwitchObjects:
   - {fileID: 1715939480841442548}

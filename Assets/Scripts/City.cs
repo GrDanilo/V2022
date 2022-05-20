@@ -21,6 +21,7 @@ public class City : MonoBehaviour
     void Start()
     {
         view = GetComponent<PhotonView>();
+        //получение камеры канвасом
         camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>() as Camera;
         canvas.worldCamera = camera;
     }

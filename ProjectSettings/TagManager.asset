@@ -47,3 +47,6 @@ TagManager:
   - name: Location
     uniqueID: 2410666855
     locked: 0
+  - name: Other
+    uniqueID: 3017850209
+    locked: 0
