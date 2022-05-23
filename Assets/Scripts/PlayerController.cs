@@ -10,23 +10,29 @@ public class PlayerController : MonoBehaviour
     private PhotonView view;
     [SerializeField]private Canvas canvas;
     private Camera camera;
-    [SerializeField]private float TravelDistance;
-    [SerializeField]private float AttackDistance;
+    private float TravelDistance;
+    [SerializeField]private float MaxTravelDistance;
     private Vector3 MyPos;
     private bool IcanGo;
     [SerializeField]private GameObject InfoMenu;
+    [SerializeField]private bool Colour;
     void Start()
     {
         view = GetComponent<PhotonView>();
         //получение камеры канвасом
         camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>() as Camera;
         canvas.worldCamera = camera;
+        TravelDistance = MaxTravelDistance;
     }
     
     void FixedUpdate()
     {
         if(view.IsMine)
         {
+            if(TravelDistance < MaxTravelDistance)
+            {
+                TravelDistance += 0.002f;
+            }
             if(TravelDistance > 0 && IcanGo == true)
             {
                 if(Input.GetKeyDown(KeyCode.W))
@@ -58,6 +64,19 @@ public class PlayerController : MonoBehaviour
                     TravelDistance -= 1;
                 }
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("PlayerBlue") && Colour == true)
+        {
+            Destroy(gameObject);
+        }
+
+        if(other.CompareTag("PlayerRed") && Colour == false)
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -17,6 +17,11 @@ public class City : MonoBehaviour
     [SerializeField]private Transform SpawnPosition;
     [SerializeField]private GameObject[] RedPlayerPrefab;
     [SerializeField]private GameObject[] BluePlayerPrefab;
+    [Header("Coins")]
+    private float CoinTime;
+    [SerializeField]private float StartCoinTime;
+    private float UnitCost;
+    [SerializeField]private float Coin;
 
     void Start()
     {
@@ -24,6 +29,19 @@ public class City : MonoBehaviour
         //получение камеры канвасом
         camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>() as Camera;
         canvas.worldCamera = camera;
+    }
+
+    void FixedUpdate()
+    {
+        if(CoinTime <= 0)
+        {
+            Coin += 1f;
+            CoinTime = StartCoinTime;
+        }
+        else
+        {
+            CoinTime -= Time.deltaTime;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other) 
@@ -59,16 +77,24 @@ public class City : MonoBehaviour
         }
     }
 
+    public void UnitsDonate(float Cost)
+    {
+        UnitCost = Cost;
+    }
     public void SpawnUnit(int UnitNumber)
     {
         //Спавн юнитов
-        if(Colour == true)
+        if(Coin > UnitCost)
         {
-            PhotonNetwork.Instantiate(RedPlayerPrefab[UnitNumber].name, SpawnPosition.position, Quaternion.identity);
-        }
-        else if(Colour == false)
-        {
-            PhotonNetwork.Instantiate(BluePlayerPrefab[UnitNumber].name, SpawnPosition.position, Quaternion.identity);
+            if(Colour == true)
+            {
+                PhotonNetwork.Instantiate(RedPlayerPrefab[UnitNumber].name, SpawnPosition.position, Quaternion.identity);
+            }
+            else if(Colour == false)
+            {
+                PhotonNetwork.Instantiate(BluePlayerPrefab[UnitNumber].name, SpawnPosition.position, Quaternion.identity);
+            }
+            Coin -= UnitCost;
         }
     }
 }

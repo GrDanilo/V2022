@@ -676,6 +676,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6284170864559054876}
         m_TargetAssemblyTypeName: City, Assembly-CSharp
+        m_MethodName: UnitsDonate
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6284170864559054876}
+        m_TargetAssemblyTypeName: City, Assembly-CSharp
         m_MethodName: SpawnUnit
         m_Mode: 3
         m_Arguments:
@@ -1206,6 +1218,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6284170864559054876}
         m_TargetAssemblyTypeName: City, Assembly-CSharp
+        m_MethodName: UnitsDonate
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6284170864559054876}
+        m_TargetAssemblyTypeName: City, Assembly-CSharp
         m_MethodName: SpawnUnit
         m_Mode: 3
         m_Arguments:
@@ -1541,6 +1565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5051055368106848447}
+  camera: {fileID: 0}
   Colour: 0
   SwitchObjects:
   - {fileID: 1715939480841442548}
@@ -1552,6 +1577,7 @@ MonoBehaviour:
   - {fileID: 1331264284462872972, guid: 6d322f87ab3581a48b0565b9a2858e13, type: 3}
   BluePlayerPrefab:
   - {fileID: 1331264284462872972, guid: 5d4a214dc2e320945b2d62f97402c0e3, type: 3}
+  StartCoinTime: 10
 --- !u!61 &5274547895621414796
 BoxCollider2D:
   m_ObjectHideFlags: 0
