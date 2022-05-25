@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool IcanGo;
     [SerializeField]private GameObject InfoMenu;
     [SerializeField]private bool Colour;
+    [SerializeField]private GameObject GoButton;
     void Start()
     {
         view = GetComponent<PhotonView>();
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
         camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>() as Camera;
         canvas.worldCamera = camera;
         TravelDistance = MaxTravelDistance;
+        if(!view.IsMine)
+        {
+            GoButton.SetActive(false);
+        }
     }
     
     void FixedUpdate()
@@ -69,14 +74,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("PlayerBlue") && Colour == true)
+        if(view.IsMine)
         {
-            Destroy(gameObject);
-        }
+            if(other.CompareTag("PlayerBlue") && Colour == true)
+            {
+                Destroy(gameObject);
+            }
 
-        if(other.CompareTag("PlayerRed") && Colour == false)
-        {
-            Destroy(gameObject);
+            if(other.CompareTag("PlayerRed") && Colour == false)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

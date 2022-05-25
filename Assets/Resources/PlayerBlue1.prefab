@@ -135,6 +135,8 @@ MonoBehaviour:
   canvas: {fileID: 4752523158583789473}
   MaxTravelDistance: 3
   InfoMenu: {fileID: 2767989119370270327}
+  Colour: 0
+  GoButton: {fileID: 6183388490211801356}
 --- !u!61 &8876729060379439791
 BoxCollider2D:
   m_ObjectHideFlags: 0

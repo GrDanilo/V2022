@@ -189,6 +189,7 @@ MonoBehaviour:
   MaxTravelDistance: 3
   InfoMenu: {fileID: 8708574233034544441}
   Colour: 1
+  GoButton: {fileID: 942797513947889230}
 --- !u!61 &8876729060379439791
 BoxCollider2D:
   m_ObjectHideFlags: 0

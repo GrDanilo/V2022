@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -9,10 +10,10 @@ public class City : MonoBehaviour
 {
     private PhotonView view;
     [SerializeField]private Canvas canvas;
-    [SerializeField]private Camera camera;
+    private Camera camera;
     [Header("Switch")]
     [SerializeField]private bool Colour;
-    [SerializeField]private GameObject[] SwitchObjects;
+    [SerializeField]private GameObject FinalMenu;
     [Header("Players")]
     [SerializeField]private Transform SpawnPosition;
     [SerializeField]private GameObject[] RedPlayerPrefab;
@@ -49,31 +50,25 @@ public class City : MonoBehaviour
         //часть кода для захвата города
         if (other.CompareTag("PlayerBlue") && Colour == true)
         {
-            SwitchColour();
+            EndGame();
         }
 
         if (other.CompareTag("PlayerRed") && Colour == false)
         {
-            SwitchColour();
+            EndGame();
         }
     }
 
-    private void SwitchColour()
+    private void EndGame()
     {
-        //включить объекты управления для команды захватившей город
+        //включить финальное меню
         if(Colour == true)
         {
-            SwitchObjects[0].SetActive(false);
-            SwitchObjects[1].SetActive(false);
-            SwitchObjects[2].SetActive(true);
-            SwitchObjects[3].SetActive(true);
+            FinalMenu.SetActive(true);
         }
         else if(Colour == false)
         {
-            SwitchObjects[0].SetActive(true);
-            SwitchObjects[1].SetActive(true);
-            SwitchObjects[2].SetActive(false);
-            SwitchObjects[3].SetActive(false);
+            FinalMenu.SetActive(true);
         }
     }
 
@@ -95,6 +90,18 @@ public class City : MonoBehaviour
                 PhotonNetwork.Instantiate(BluePlayerPrefab[UnitNumber].name, SpawnPosition.position, Quaternion.identity);
             }
             Coin -= UnitCost;
+        }
+    }
+
+    public void EndButton(bool MenuButton)
+    {
+        if(MenuButton == true)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        else if(MenuButton == false)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
