@@ -1322,8 +1322,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6284170864559054876}
         m_TargetAssemblyTypeName: City, Assembly-CSharp
-        m_MethodName: EndButton
-        m_Mode: 6
+        m_MethodName: Leave
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1460,6 +1460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5051055368106848447}
+  MyCanvas: {fileID: 3923419412051675212}
   Colour: 1
   FinalMenu: {fileID: 157609912013492047}
   SpawnPosition: {fileID: 898530091419046789}

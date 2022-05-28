@@ -8,7 +8,6 @@ using Photon.Realtime;
 
 public class ManageGame : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject CameraPrefab;
     [SerializeField] Vector3 RedPos;
     [SerializeField] Vector3 BluePos;
     [SerializeField] private int Team;
@@ -16,9 +15,7 @@ public class ManageGame : MonoBehaviourPunCallbacks
 
     [SerializeField] GameObject CityPrefabRed;
     [SerializeField] GameObject CityPrefabBlue;
-    [SerializeField] Vector3[] CitySpawners;
 
-    [SerializeField] GameObject Button;
     private int rand;
 
     private void Start()
@@ -33,12 +30,12 @@ public class ManageGame : MonoBehaviourPunCallbacks
         {
             //Первый игрок подключится к красной команде
             Team = 0;
-            PhotonNetwork.Instantiate(CityPrefabRed.name, CitySpawners[rand], Quaternion.identity);
+            PhotonNetwork.Instantiate(CityPrefabRed.name, RedPos, Quaternion.identity);
         } 
         else
         {
             Team = 1;
-            PhotonNetwork.Instantiate(CityPrefabBlue.name, CitySpawners[rand], Quaternion.identity); 
+            PhotonNetwork.Instantiate(CityPrefabBlue.name, BluePos, Quaternion.identity); 
         }
     }
 

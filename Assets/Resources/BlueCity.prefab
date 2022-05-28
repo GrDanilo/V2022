@@ -125,7 +125,7 @@ MonoBehaviour:
       - m_Target: {fileID: 6284170864559054876}
         m_TargetAssemblyTypeName: City, Assembly-CSharp
         m_MethodName: EndButton
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1256,8 +1256,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6284170864559054876}
         m_TargetAssemblyTypeName: City, Assembly-CSharp
-        m_MethodName: EndButton
-        m_Mode: 6
+        m_MethodName: Leave
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1671,8 +1671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5051055368106848447}
+  MyCanvas: {fileID: 3923419412051675212}
   Colour: 0
-  FinalMenu: {fileID: 0}
+  FinalMenu: {fileID: 5981720889196290031}
   SpawnPosition: {fileID: 898530091419046789}
   RedPlayerPrefab:
   - {fileID: 1331264284462872972, guid: 6d322f87ab3581a48b0565b9a2858e13, type: 3}

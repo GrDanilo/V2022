@@ -318,24 +318,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2125987e4e82664f858ec21600aa95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraPrefab: {fileID: 4340335159085753895, guid: 76a9c88a59b73384796865276151c305, type: 3}
-  RedPos: {x: 7, y: 0, z: -10}
-  BluePos: {x: -7, y: 0, z: -10}
-  team: 0
+  RedPos: {x: 7, y: 0, z: 0}
+  BluePos: {x: -7, y: 0, z: 0}
+  Team: 0
   view: {fileID: 694397029}
   CityPrefabRed: {fileID: 8363877607231199000, guid: 690561f058d7b0948a0c8b193e4c5b02, type: 3}
   CityPrefabBlue: {fileID: 8363877607231199000, guid: 98248c09564b60c418f95ea62afcadba, type: 3}
-  CitySpawners:
-  - {x: 7, y: 0, z: 0}
-  - {x: 7, y: 5, z: 0}
-  - {x: 7, y: -5, z: 0}
-  - {x: 4, y: 5, z: 0}
-  - {x: 4, y: -5, z: 0}
-  - {x: -7, y: 0, z: 0}
-  - {x: -7, y: 5, z: 0}
-  - {x: -7, y: -5, z: 0}
-  - {x: -4, y: 5, z: 0}
-  - {x: -4, y: -5, z: 0}
 --- !u!4 &694397031
 Transform:
   m_ObjectHideFlags: 0
@@ -441,7 +429,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

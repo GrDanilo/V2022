@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private PhotonView view;
     [SerializeField]private Canvas canvas;
     private Camera camera;
+    private CameraMover CameraMover;
     private float TravelDistance;
     [SerializeField]private float MaxTravelDistance;
     private Vector3 MyPos;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         //получение камеры канвасом
         camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>() as Camera;
         canvas.worldCamera = camera;
+        CameraMover = GameObject.FindGameObjectWithTag("Camera").GetComponent<CameraMover>() as CameraMover;
         TravelDistance = MaxTravelDistance;
         if(!view.IsMine)
         {
@@ -96,11 +98,13 @@ public class PlayerController : MonoBehaviour
             {
                 IcanGo = true;
                 InfoMenu.SetActive(true);
+                CameraMover.enabled = false;
             }
             else
             {
                 IcanGo = false;
                 InfoMenu.SetActive(false);
+                CameraMover.enabled = true;
             }
         }
     }

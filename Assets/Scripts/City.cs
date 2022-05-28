@@ -11,6 +11,7 @@ public class City : MonoBehaviour
     private PhotonView view;
     [SerializeField]private Canvas canvas;
     private Camera camera;
+    [SerializeField]private GameObject MyCanvas;
     [Header("Switch")]
     [SerializeField]private bool Colour;
     [SerializeField]private GameObject FinalMenu;
@@ -33,7 +34,7 @@ public class City : MonoBehaviour
 
         if(!view.IsMine)
         {
-            //Canvas.SetActive(false);
+            MyCanvas.SetActive(false);
         }
     }
 
@@ -48,6 +49,11 @@ public class City : MonoBehaviour
         {
             CoinTime -= Time.deltaTime;
         }
+    }
+
+    public void Leave()
+    {
+        PhotonNetwork.LeaveRoom();
     }
 
     private void OnTriggerStay2D(Collider2D other) 
@@ -98,15 +104,8 @@ public class City : MonoBehaviour
         }
     }
 
-    public void EndButton(bool MenuButton)
+    public void EndButton()
     {
-        if(MenuButton == true)
-        {
-            SceneManager.LoadScene("Menu");
-        }
-        else if(MenuButton == false)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
