@@ -12,6 +12,7 @@ public class City : MonoBehaviour
     [SerializeField]private Canvas canvas;
     private Camera camera;
     [SerializeField]private GameObject MyCanvas;
+    [SerializeField]private GameObject DeliteObject;
     [Header("Switch")]
     [SerializeField]private bool Colour;
     [SerializeField]private GameObject FinalMenu;
@@ -24,6 +25,8 @@ public class City : MonoBehaviour
     [SerializeField]private float StartCoinTime;
     private float UnitCost;
     [SerializeField]private float Coin;
+    [SerializeField]private Image CoinLine;
+    [SerializeField]private Text CoinText;
 
     void Start()
     {
@@ -35,6 +38,7 @@ public class City : MonoBehaviour
         if(!view.IsMine)
         {
             MyCanvas.SetActive(false);
+            DeliteObject.SetActive(false);
         }
     }
 
@@ -44,10 +48,12 @@ public class City : MonoBehaviour
         {
             Coin += 1f;
             CoinTime = StartCoinTime;
+            CoinText.text = "Деньги: " + Coin;
         }
         else
         {
             CoinTime -= Time.deltaTime;
+            CoinLine.fillAmount = CoinTime / StartCoinTime;
         }
     }
 
@@ -90,7 +96,7 @@ public class City : MonoBehaviour
     public void SpawnUnit(int UnitNumber)
     {
         //Спавн юнитов
-        if(Coin > UnitCost)
+        if(Coin >= UnitCost)
         {
             if(Colour == true)
             {
@@ -101,6 +107,7 @@ public class City : MonoBehaviour
                 PhotonNetwork.Instantiate(BluePlayerPrefab[UnitNumber].name, SpawnPosition.position, Quaternion.identity);
             }
             Coin -= UnitCost;
+            CoinText.text = "Деньги: " + Coin;
         }
     }
 
