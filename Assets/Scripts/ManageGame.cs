@@ -11,11 +11,14 @@ public class ManageGame : MonoBehaviourPunCallbacks
     [SerializeField] GameObject CameraPrefab;
     [SerializeField] Vector3 RedPos;
     [SerializeField] Vector3 BluePos;
-    [SerializeField] private int team;
+    [SerializeField] private int Team;
     [SerializeField] private PhotonView view;
 
-    [SerializeField] GameObject CityPrefab;
+    [SerializeField] GameObject CityPrefabRed;
+    [SerializeField] GameObject CityPrefabBlue;
     [SerializeField] Vector3[] CitySpawners;
+
+    [SerializeField] GameObject Button;
     private int rand;
 
     private void Start()
@@ -24,25 +27,19 @@ public class ManageGame : MonoBehaviourPunCallbacks
         int selectedChar = PlayerPrefs.GetInt("SelectedPlayer");
         rand = Random.Range(0, 11);
 
-        if (team == 1)
-        {
-            //PhotonNetwork.Instantiate(CameraPrefab.name, BluePos, Quaternion.identity);
-            PhotonNetwork.Instantiate(CityPrefab.name, CitySpawners[rand], Quaternion.identity);
-        }
+        view = GetComponent<PhotonView>();
 
-        if(team == 0)
+        if(PhotonNetwork.IsMasterClient == true)
         {
-            //PhotonNetwork.Instantiate(CameraPrefab.name, RedPos, Quaternion.identity);
-            //team += 1;
-            view.RPC("Team", RpcTarget.AllBuffered, team);
-            PhotonNetwork.Instantiate(CityPrefab.name, CitySpawners[rand], Quaternion.identity);
+            //Первый игрок подключится к красной команде
+            Team = 0;
+            PhotonNetwork.Instantiate(CityPrefabRed.name, CitySpawners[rand], Quaternion.identity);
+        } 
+        else
+        {
+            Team = 1;
+            PhotonNetwork.Instantiate(CityPrefabBlue.name, CitySpawners[rand], Quaternion.identity); 
         }
-    }
-
-    [PunRPC]
-    public void Team(float TeamNumber)
-    {
-        team += 1;
     }
 
     public void Leave()

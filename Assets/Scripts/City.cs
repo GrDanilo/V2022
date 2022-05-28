@@ -30,6 +30,11 @@ public class City : MonoBehaviour
         //получение камеры канвасом
         camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>() as Camera;
         canvas.worldCamera = camera;
+
+        if(!view.IsMine)
+        {
+            //Canvas.SetActive(false);
+        }
     }
 
     void FixedUpdate()

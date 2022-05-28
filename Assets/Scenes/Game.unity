@@ -323,7 +323,8 @@ MonoBehaviour:
   BluePos: {x: -7, y: 0, z: -10}
   team: 0
   view: {fileID: 694397029}
-  CityPrefab: {fileID: 8363877607231199000, guid: 690561f058d7b0948a0c8b193e4c5b02, type: 3}
+  CityPrefabRed: {fileID: 8363877607231199000, guid: 690561f058d7b0948a0c8b193e4c5b02, type: 3}
+  CityPrefabBlue: {fileID: 8363877607231199000, guid: 98248c09564b60c418f95ea62afcadba, type: 3}
   CitySpawners:
   - {x: 7, y: 0, z: 0}
   - {x: 7, y: 5, z: 0}
