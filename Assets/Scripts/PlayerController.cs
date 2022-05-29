@@ -74,18 +74,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(view.IsMine)
         {
             if(other.CompareTag("PlayerBlue") && Colour == true)
             {
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
 
             if(other.CompareTag("PlayerRed") && Colour == false)
             {
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(view.IsMine)
+        {
+            if(other.CompareTag("PlayerBlue") && Colour == true)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
+
+            if(other.CompareTag("PlayerRed") && Colour == false)
+            {
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }
