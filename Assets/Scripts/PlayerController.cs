@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float MaxTravelDistance;
     private Vector3 MyPos;
     private bool IcanGo;
+    [SerializeField]private Transform shotPoint;
+    [SerializeField]private GameObject Boom;
     [SerializeField]private GameObject InfoMenu;
     [SerializeField]private bool Colour;
     [SerializeField]private GameObject GoButton;
@@ -78,27 +80,17 @@ public class PlayerController : MonoBehaviour
     {
         if(view.IsMine)
         {
-            if(other.CompareTag("PlayerBlue") && Colour == true)
+            if(other.CompareTag("PlayerBlue"))
             {
                 PhotonNetwork.Destroy(gameObject);
             }
 
-            if(other.CompareTag("PlayerRed") && Colour == false)
-            {
-                PhotonNetwork.Destroy(gameObject);
-            }
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(view.IsMine)
-        {
-            if(other.CompareTag("PlayerBlue") && Colour == true)
+            if(other.CompareTag("PlayerRed"))
             {
                 PhotonNetwork.Destroy(gameObject);
             }
 
-            if(other.CompareTag("PlayerRed") && Colour == false)
+            if(other.CompareTag("Destroy"))
             {
                 PhotonNetwork.Destroy(gameObject);
             }
@@ -121,6 +113,15 @@ public class PlayerController : MonoBehaviour
                 InfoMenu.SetActive(false);
                 CameraMover.enabled = true;
             }
+        }
+    }
+
+    public void BoomButton()
+    {
+        if(view.IsMine)
+        {
+            PhotonNetwork.Instantiate(Boom.name, shotPoint.position, shotPoint.rotation);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }

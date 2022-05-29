@@ -7,6 +7,7 @@ TagManager:
   - PlayerRed
   - PlayerBlue
   - Camera
+  - Destroy
   layers:
   - Default
   - TransparentFX
