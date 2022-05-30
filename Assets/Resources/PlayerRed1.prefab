@@ -187,6 +187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 7574641995420994303}
   MaxTravelDistance: 3
+  shotPoint: {fileID: 0}
+  Boom: {fileID: 0}
   InfoMenu: {fileID: 8708574233034544441}
   Colour: 1
   GoButton: {fileID: 942797513947889230}
@@ -389,7 +391,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0423\u043D\u0435\u0447\u0442\u043E\u0436\u0438\u0442\u0435\u043B\u044C"
+  m_Text: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0438\u0442\u0435\u043B\u044C"
 --- !u!1 &4116117575214725213
 GameObject:
   m_ObjectHideFlags: 0
